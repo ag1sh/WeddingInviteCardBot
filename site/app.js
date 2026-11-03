@@ -4,7 +4,8 @@ const tg = window.Telegram && window.Telegram.WebApp;
 const inTelegram = Boolean(tg && tg.initData);
 
 const SIGNATURE_LENGTH = 64;
-const PAPER_COLOR = '#f4eee3';
+const PAGE_COLOR = '#4a3d30';
+const PHOTO_TOP_COLOR = '#2f2a1f';
 
 function base64ToBytes(value) {
   const binary = atob(value.replace(/-/g, '+').replace(/_/g, '/'));
@@ -45,7 +46,7 @@ async function showGuest() {
       console.warn('Could not read invitation token', err);
     }
   }
-  guest.textContent = name || strings.genericGuest;
+  guest.textContent = `${name || strings.genericGuest},`;
   guest.classList.add('is-shown');
 }
 
@@ -61,14 +62,24 @@ function showDetails() {
     couple.hidden = false;
   }
 
+  const when = [wedding.time];
   if (wedding.date) {
-    document.getElementById('date').textContent = new Intl.DateTimeFormat('ru', {
-      weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Tashkent',
-    }).format(new Date(`${wedding.date}T12:00:00+05:00`));
-    document.getElementById('date-row').hidden = false;
+    // Read from a full date so the month stays in the genitive: «декабря», not «декабрь».
+    const parts = new Intl.DateTimeFormat('ru', {
+      weekday: 'long', day: '2-digit', month: 'long', year: 'numeric', timeZone: 'Asia/Tashkent',
+    }).formatToParts(new Date(`${wedding.date}T12:00:00+05:00`));
+    const partOf = (type) => parts.find((part) => part.type === type).value;
+    ['day', 'month', 'year'].forEach((type) => {
+      document.getElementById(`date-${type}`).textContent = partOf(type);
+    });
+    document.getElementById('date').hidden = false;
+    when.unshift(partOf('weekday'));
   }
 
-  document.getElementById('time').textContent = wedding.time;
+  document.getElementById('time').textContent = when.join(' · ');
+  document.getElementById('more').addEventListener('click', () => {
+    document.getElementById('when').scrollIntoView({ behavior: 'smooth' });
+  });
   document.getElementById('venue').textContent = wedding.venue.name;
   document.getElementById('address').textContent = wedding.venue.address;
 }
@@ -97,8 +108,8 @@ function setUpTelegram() {
   if (!inTelegram) return;
   tg.ready();
   tg.expand();
-  tg.setHeaderColor(PAPER_COLOR);
-  tg.setBackgroundColor(PAPER_COLOR);
+  tg.setHeaderColor(PHOTO_TOP_COLOR);
+  tg.setBackgroundColor(PAGE_COLOR);
   // Otherwise dragging the map down can close the app.
   if (tg.isVersionAtLeast('7.7')) tg.disableVerticalSwipes();
 }

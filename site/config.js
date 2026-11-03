@@ -1,6 +1,6 @@
 // Everything about the wedding that you may want to edit lives here.
 window.WEDDING = {
-  couple: 'Руслан и Светлана',
+  couple: 'Руслан\nи Светлана',
   date: '2026-12-05',
   time: '18:00',
 
@@ -13,11 +13,9 @@ window.WEDDING = {
 
   strings: {
     title: 'Приглашение на свадьбу',
-    eyebrow: 'Приглашение на свадьбу',
     genericGuest: 'Дорогие гости',
+    invited: 'приглашаем вас на нашу свадьбу',
     message: 'Будем счастливы разделить с вами этот особенный день',
-    date: 'Дата',
-    time: 'Начало',
     place: 'Место',
     directions: 'Как добраться',
     yandex: 'Яндекс Карты',
