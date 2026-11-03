@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>Приглашение на свадьбу</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@400;500&display=swap&subset=cyrillic">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="invite">
+    <section class="arch">
+      <svg class="sprig" viewBox="0 0 120 56" aria-hidden="true">
+        <path class="sprig-stem" d="M60 52C60 36 46 22 22 12M60 52C60 36 74 22 98 12"/>
+        <g class="sprig-leaves">
+          <ellipse cx="25" cy="6" rx="8" ry="3" transform="rotate(24 25 6)"/>
+          <ellipse cx="17" cy="19" rx="8" ry="3" transform="rotate(-18 17 19)"/>
+          <ellipse cx="38" cy="12" rx="8" ry="3" transform="rotate(38 38 12)"/>
+          <ellipse cx="30" cy="27" rx="8" ry="3" transform="rotate(-8 30 27)"/>
+          <ellipse cx="50" cy="24" rx="8" ry="3" transform="rotate(58 50 24)"/>
+          <ellipse cx="44" cy="38" rx="8" ry="3" transform="rotate(8 44 38)"/>
+          <ellipse cx="95" cy="6" rx="8" ry="3" transform="rotate(-24 95 6)"/>
+          <ellipse cx="103" cy="19" rx="8" ry="3" transform="rotate(18 103 19)"/>
+          <ellipse cx="82" cy="12" rx="8" ry="3" transform="rotate(-38 82 12)"/>
+          <ellipse cx="90" cy="27" rx="8" ry="3" transform="rotate(8 90 27)"/>
+          <ellipse cx="70" cy="24" rx="8" ry="3" transform="rotate(-58 70 24)"/>
+          <ellipse cx="76" cy="38" rx="8" ry="3" transform="rotate(-8 76 38)"/>
+        </g>
+      </svg>
+      <p class="eyebrow" data-text="eyebrow"></p>
+      <p class="couple" id="couple" hidden></p>
+      <h1 class="guest" id="guest"></h1>
+      <p class="message" data-text="message"></p>
+    </section>
+
+    <dl class="details">
+      <div id="date-row" hidden>
+        <dt data-text="date"></dt>
+        <dd id="date"></dd>
+      </div>
+      <div>
+        <dt data-text="time"></dt>
+        <dd class="details-time" id="time"></dd>
+      </div>
+      <div>
+        <dt data-text="place"></dt>
+        <dd>
+          <span class="details-venue" id="venue"></span>
+          <span class="details-address" id="address"></span>
+        </dd>
+      </div>
+    </dl>
+
+    <section class="place">
+      <h2 data-text="directions"></h2>
+      <iframe class="map" id="map" loading="lazy" allowfullscreen></iframe>
+      <div class="map-links">
+        <a class="button button-primary" id="yandex-link" target="_blank" rel="noopener" data-text="yandex"></a>
+        <a class="button" id="google-link" target="_blank" rel="noopener" data-text="google"></a>
+      </div>
+    </section>
+
+    <p class="closing" data-text="closing"></p>
+  </main>
+
+  <script src="public-key.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

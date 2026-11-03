@@ -1,0 +1,251 @@
+:root {
+  color-scheme: light;
+  --paper: #f4eee3;
+  --card: #fbf8f1;
+  --ink: #2c2a25;
+  --muted: #6f6a5e;
+  --wine: #6b2737;
+  --olive: #6d7350;
+  --line: #cfc2a8;
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Jost', 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 20px;
+  font-variant-numeric: lining-nums;
+  line-height: 1.4;
+}
+
+.invite {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding:
+    max(20px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(32px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+}
+
+.invite > * {
+  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.invite > :nth-child(2) { animation-delay: 0.15s; }
+.invite > :nth-child(3) { animation-delay: 0.3s; }
+.invite > :nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.arch {
+  padding: 44px 24px 40px;
+  border: 1px solid var(--line);
+  border-radius: 220px 220px 4px 4px;
+  outline: 1px solid var(--line);
+  outline-offset: -8px;
+  background: var(--card);
+  text-align: center;
+}
+
+.sprig {
+  display: block;
+  width: 96px;
+  margin: 0 auto 20px;
+}
+
+.sprig-stem {
+  fill: none;
+  stroke: var(--olive);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.sprig-leaves {
+  fill: var(--olive);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.couple {
+  margin: 12px 0 0;
+  color: var(--wine);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.guest {
+  min-height: 1.1em;
+  margin: 28px 0 20px;
+  color: var(--wine);
+  font-size: clamp(38px, 11vw, 50px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.guest.is-shown {
+  opacity: 1;
+}
+
+.message {
+  max-width: 17em;
+  margin: 0 auto;
+  font-size: 21px;
+  text-wrap: balance;
+}
+
+.details {
+  margin: 32px 0 0;
+}
+
+.details > div {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.details > div:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.details dt {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.details dd {
+  margin: 0;
+  font-size: 22px;
+}
+
+.details .details-time {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.details-venue {
+  display: block;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.details-address {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 15px;
+}
+
+.place {
+  margin-top: 36px;
+}
+
+.place h2 {
+  margin: 0 0 14px;
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--card);
+}
+
+.map-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 8px 12px;
+  border: 1px solid var(--wine);
+  border-radius: 4px;
+  color: var(--wine);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--wine);
+  outline-offset: 2px;
+}
+
+.button-primary {
+  background: var(--wine);
+  color: var(--card);
+}
+
+.closing {
+  margin: 40px 0 8px;
+  color: var(--wine);
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invite > * {
+    animation: none;
+  }
+
+  .guest {
+    transition: none;
+  }
+}

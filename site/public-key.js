@@ -1,0 +1,1 @@
+window.INVITE_PUBLIC_KEY = 'MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEVViaLiMMqEXF+X7fdEnqZ23/qwxbP+bazfLpvhGiGuqhczxqjL9kdjhcKqaBKUwhAbmtZaueZUtzoe1xBDZqUw==';
