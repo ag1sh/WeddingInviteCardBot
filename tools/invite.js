@@ -17,7 +17,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Direct Link Mini App address from BotFather; the token is appended to it.
-const BASE_URL = 'https://t.me/YOUR_BOT/YOUR_APP?startapp=';
+const BASE_URL = 'https://t.me/WeddingInviteCardBot/invite?mode=fullscreen&startapp=';
 
 const ROOT = path.join(__dirname, '..');
 const PRIVATE_KEY_PATH = path.join(ROOT, 'keys', 'private.pem');

@@ -16,7 +16,7 @@ keys/           private key; never deploy or commit it
 
 1. Upload the `site/` folder to any static HTTPS host, such as Cloudflare Pages or Netlify.
 2. In [@BotFather](https://t.me/BotFather), run `/newbot` if you have no bot yet, then `/newapp`. Give it the page URL and a short name.
-3. Set `BASE_URL` at the top of `tools/invite.js` to `https://t.me/<bot>/<short name>?startapp=`.
+3. Set `BASE_URL` at the top of `tools/invite.js` to `https://t.me/<bot>/<short name>?mode=fullscreen&startapp=`.
 
 ## Creating links
 
